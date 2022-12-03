@@ -8,8 +8,8 @@ class Jet:
     Class that implements the representation of a jet event, with PV and SV and tracks originating from both points,
     and pileup tracks.
     Public Members:
-    @self.PV: array of shape (3,), jet's primary vertex;
-    @self.SV: array of shape (3,), jet's secondary vertex;
+    @self.PV: array of shape (3,), jet's primary vertex coordinates;
+    @self.SV: array of shape (3,), jet's secondary vertex coordinates;
     @self.tracksPV: list of Track instances, tracks originating from the PV;
     @self.tracksSV: list of Track instances, tracks originating from the SV;
     @self.tracksPileup: list of Track instances, tracks belonging to pileup events;
@@ -18,7 +18,7 @@ class Jet:
 
     Public Methods:
     @print(): prints the event details: PV and SV coordinates, and tracks details;
-    @draw(): draws the event in a matplotlib figure: if parameters couples and fittedTracks 
+    @draw(): draws the event in a matplotlib figure: if parameters "couples" and "fittedTracks" 
         are not specified it only draws the event; if they are specified, it also draws the 
         event with coupled tracks and the fitted vertex and fitted tracks;
     '''
@@ -53,7 +53,7 @@ class Jet:
 
     def draw(self, couples = [], fittedSV = [], fittedTracks = [], drawJetCone = False):
         '''
-        Draws the event in a matplotlib figure: if parameters couples and fittedTracks 
+        Draws the event in a matplotlib figure: if parameters "couples" and "fittedTracks" 
         are not specified it only draws the event; if they are specified, it also draws the 
         event with coupled tracks and the fitted vertex and fitted tracks.
         Parameters:

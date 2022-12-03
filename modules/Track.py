@@ -64,7 +64,7 @@ class Track:
         '''
         Evaluates the minimum distance between the current track and the input point.
         Parameters:
-        @P: np.array or list of shape(3,), track from which evaluate the distance;
+        @P: np.array or list of shape(3,), point from which evaluate the distance;
         Returns:
         @distance: double, the minimum distance between the track and the point;
         '''

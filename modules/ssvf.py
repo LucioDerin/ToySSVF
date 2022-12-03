@@ -12,7 +12,7 @@ class SSVF:
     @self.chi2Threshold: chi2 threshold value after which vertex fitting loop stops;
 
     Public Methods:
-    @vertexFinder(jet): returns list of list of Track instances, the tracks
+    @vertexFinder(jet): returns list of lists of Track instances, the tracks
         coupled during the vertex finding step;
     @vertexFitter(couples): return np.array of shape (3,), the fitted SV, and a list of 
         Track instances, the tracks that have been fitted to the SV.
