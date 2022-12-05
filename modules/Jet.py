@@ -1,6 +1,8 @@
 import numpy as np
 import math as m
 from matplotlib import pyplot as plt
+import plotly.express as px
+import plotly.graph_objects as go
 from modules.Track import Track
 
 class Jet:
@@ -51,7 +53,7 @@ class Jet:
             t.print()
         print("------------------------------------------")
 
-    def draw(self, couples = [], fittedSV = [], fittedTracks = [], drawJetCone = False):
+    def draw(self, couples = [], fittedSV = [], fittedTracks = [], drawJetCone = False, plotly = False):
         '''
         Draws the event in a matplotlib figure: if parameters "couples" and "fittedTracks" 
         are not specified it only draws the event; if they are specified, it also draws the 
@@ -202,7 +204,45 @@ class Jet:
                 ax.set_xlabel("x [mm]")
                 ax.set_ylabel("y [mm]")
                 ax.set_zlabel("z [mm]")
+            
+            # If plotly, make plot
+            if plotly:
+                # Drawing PV,SV,fittedSV
+                points = np.row_stack((self.PV,self.SV,fittedSV))
+                colorsPlotly = ["blue","red","orange"]
+                fig = go.Figure(go.Scatter3d(
+                        x = points[:,0], y = points[:,1], z = points[:,2],
+                        marker=dict(
+                            size=2,
+                            color=colorsPlotly
+                        ),
+                            line=dict(
+                            color='grey',
+                            width=2
+                        ),
+                    )
+                )
 
+                # Drawing only fitted tracks
+                for track in fittedTracks:
+                    points = []
+                    for t in np.linspace(0,20,10):
+                        points.append(track.evaluate(t))
+                    points = np.asarray(points)
+                    fig.add_trace(
+                            go.Scatter3d(
+                            x = points[:,0], y = points[:,1], z = points[:,2],
+                            marker=dict(
+                                size=0.1,
+                            ),
+                            line=dict(
+                                color='darkblue',
+                                width=2,
+                            ),
+                        )
+                    )
+                fig.show()
+    
         # If jet has not been fed in SSVF algorithms
         else:
             fig = plt.figure()

@@ -42,7 +42,9 @@ class JetGenerator:
     nTracksRange = 2
 
     # Constructor
-    def __init__(self,nEvents=1, nTracksPV = 4, nTracksSV = 5, nTracksPileup = 3):
+    def __init__(self,nEvents=1, nTracksPV = 4, nTracksSV = 5, nTracksPileup = 3,seed = None):
+        if seed:
+            np.random.seed(seed)
         self.nEvents = nEvents
         self.nTracksPV = nTracksPV
         self.nTracksSV = nTracksSV
