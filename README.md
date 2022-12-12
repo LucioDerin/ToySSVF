@@ -4,7 +4,8 @@ Repository content:
 - `.modules/Track`: Class to represent a track in the jet;
 - `.modules/Jet`: Class to represent a jet;
 - `.modules/JetGenerator`: Class that implements a simple jets Montecarlo generator;
-- `.modules/ssvf`: Class that implements the SSVF algorithm;
+- `.modules/SSVF`: Class that implements the SSVF algorithm;
+- `.modules/ClusteringSSVF`: Class that implements the C-SSVF algorithm;
 - `./test.py`: test of the modules;
 - `./errorsHist.py`: test of SSVF on 100 jets and plot of the errors' histogram;
 - `./clustering.py`: KMeans clustering applied to a jet;
