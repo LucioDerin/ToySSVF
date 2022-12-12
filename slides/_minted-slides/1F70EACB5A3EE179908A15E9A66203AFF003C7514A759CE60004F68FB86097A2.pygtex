@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} fitting loop}
+\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Find the SV that minimizes the chi2}
+    \PYG{c+c1}{\PYGZsh{} from the current selected tracks}
+    \PYG{n}{SVfitted} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{chi2}\PYG{p}{(}\PYG{n}{tracks}\PYG{p}{))}
+    \PYG{c+c1}{\PYGZsh{} If chi2 is good enough, break}
+    \PYG{k}{if} \PYG{n}{chi2} \PYG{o}{\PYGZlt{}} \PYG{n}{threshold}\PYG{p}{:}
+        \PYG{k}{break}
+    \PYG{c+c1}{\PYGZsh{} Else, reject the worst track}
+    \PYG{n}{tracks}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{argmax}\PYG{p}{(}\PYG{n}{chi2s}\PYG{p}{))}
+    \PYG{c+c1}{\PYGZsh{} If there are less than 2 tracks,}
+    \PYG{c+c1}{\PYGZsh{} no vertex has been found}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{tracks}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{2}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+\PYG{k}{return} \PYG{n}{SVfitted}
+\end{Verbatim}

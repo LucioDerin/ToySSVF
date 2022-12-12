@@ -132,7 +132,7 @@ class JetGenerator:
                 theta = 0.5*self.thetaMaxJet
                 phi = np.random.uniform(0,2*m.pi)
                 # making sure pileup does not cross PV
-                r = (z+1)/m.cos(theta)
+                r = (z+2)/m.cos(theta)
                 x = r*m.sin(theta)*m.cos(phi)
                 y = r*m.sin(theta)*m.sin(phi)
                 origin = [x,y,z]

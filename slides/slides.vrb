@@ -1,0 +1,19 @@
+\frametitle{Step 0: understanding vertex fitting (pseudo-code)}
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+    \begin{minted}[bgcolor=bg]{python}
+# fitting loop
+while True:
+    # Find the SV that minimizes the chi2
+    # from the current selected tracks
+    SVfitted = min(chi2(tracks))
+    # If chi2 is good enough, break
+    if chi2 < threshold:
+        break
+    # Else, reject the worst track
+    tracks.pop(argmax(chi2s))
+    # If there are less than 2 tracks,
+    # no vertex has been found
+    if len(tracks)<2:
+        return None
+return SVfitted
+    \end{minted}

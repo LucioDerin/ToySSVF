@@ -4,11 +4,11 @@
 # List of coupled tracks (two-tracks vertex approximation)
 couples = []
 indices = [i for i in range(len(tracks))]
-# While there are have tracks to be coupled
+# While there are tracks to be coupled
 while len(tracks)>1:
     # Select the track to be coupled
     i,t = indices.pop(0),tracks.pop(0)
-    #selecting the closest tracks
+    #selecting the closest track
     j = argmin(distances)
     # if tracks are close enough, couple them
     if distances[j] < threshold:

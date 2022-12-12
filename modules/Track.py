@@ -28,6 +28,7 @@ class Track:
         '''
         self.origin = np.asarray(origin)
         self.versor = np.asarray(versor)
+        self.IP = self.pointDistance([0,0,0])
     
     def evaluate(self,t):
         '''

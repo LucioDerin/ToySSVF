@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} List of coupled tracks (two\PYGZhy{}tracks vertex approximation)}
+\PYG{n}{couples} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{indices} \PYG{o}{=} \PYG{p}{[}\PYG{n}{i} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{tracks}\PYG{p}{))]}
+\PYG{c+c1}{\PYGZsh{} While there are tracks to be coupled}
+\PYG{k}{while} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{tracks}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Select the track to be coupled}
+    \PYG{n}{i}\PYG{p}{,}\PYG{n}{t} \PYG{o}{=} \PYG{n}{indices}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{),}\PYG{n}{tracks}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{}selecting the closest track}
+    \PYG{n}{j} \PYG{o}{=} \PYG{n}{argmin}\PYG{p}{(}\PYG{n}{distances}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} if tracks are close enough, couple them}
+    \PYG{k}{if} \PYG{n}{distances}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{threshold}\PYG{p}{:}
+        \PYG{n}{tc} \PYG{o}{=} \PYG{n}{tracks}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+        \PYG{n}{indices}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+        \PYG{n}{couples}\PYG{o}{.}\PYG{n}{append}\PYG{p}{([}\PYG{n}{t}\PYG{p}{,}\PYG{n}{tc}\PYG{p}{])}
+\PYG{k}{return} \PYG{n}{couples}
+\end{Verbatim}

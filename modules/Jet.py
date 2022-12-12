@@ -1,8 +1,8 @@
 import numpy as np
 import math as m
 from matplotlib import pyplot as plt
-import plotly.express as px
-import plotly.graph_objects as go
+#import plotly.express as px
+#import plotly.graph_objects as go
 from modules.Track import Track
 
 class Jet:
@@ -102,7 +102,7 @@ class Jet:
             label = False
             for track in self.tracksPileup:
                 points = []
-                for t in np.linspace(0,20,10):
+                for t in np.linspace(-20,20,10):
                     points.append(track.evaluate(t))
                 points = np.asarray(points)
                 if not label:
@@ -280,7 +280,7 @@ class Jet:
             label = False
             for track in self.tracksPileup:
                 points = []
-                for t in np.linspace(0,20,10):
+                for t in np.linspace(-10,20,10):
                     points.append(track.evaluate(t))
                 points = np.asarray(points)
                 if not label:
