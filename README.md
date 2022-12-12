@@ -1,7 +1,7 @@
 ### Toy reproduction of SSVF algorithm
 
 Repository content:
-- `.modules/Track`: Class to represent a tracks in the jet;
+- `.modules/Track`: Class to represent a track in the jet;
 - `.modules/Jet`: Class to represent a jet;
 - `.modules/JetGenerator`: Class that implements a simple jets Montecarlo generator;
 - `.modules/ssvf`: Class that implements the SSVF algorithm;
